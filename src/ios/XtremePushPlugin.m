@@ -214,6 +214,7 @@ static NSMutableDictionary *pushNotificationBackupList;
 
 - (void)requestPushPermissions:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
+	 [XPush setSandboxModeEnabled:YES];
         [XPush registerForRemoteNotificationTypes:XPNotificationType_Alert | XPNotificationType_Sound | XPNotificationType_Badge];
     }];
 }
